@@ -1,4 +1,9 @@
-function TaskItem({ task, onToggle, onDelete }) {
+import {TaskContext} from '../context/TaskContext'
+import {useContext} from 'react'
+
+function TaskItem({task}) {
+  const {toggleTask, deleteTask} = useContext(TaskContext)
+
   return (
     <li
       className={`p-2 my-2 rounded-xl mb-2 shadow-md flex justify-between items-start border-l-4 ${
@@ -22,12 +27,12 @@ function TaskItem({ task, onToggle, onDelete }) {
       </div>
       <div className="flex flex-col gap-2">
         <button
-          onClick={() => onToggle(task.id)}
+          onClick={() => toggleTask(task.id)}
           className="text-blue-400 hover:text-blue-600 text-sm"
         >
           {task.completed ? "Unmark" : "Complete"}
         </button>
-        <button onClick={() => onDelete(task.id)} className="">
+        <button onClick={() => deleteTask(task.id)} className="">
           🗑
         </button>
       </div>

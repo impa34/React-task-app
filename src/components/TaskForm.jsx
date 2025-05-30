@@ -1,14 +1,17 @@
 import { useState } from "react";
+import {TaskContext} from '../context/TaskContext'
+import {useContext} from 'react'
 
-function TaskForm({ onAdd }) {
+function TaskForm() {
   const [text, setText] = useState("");
   const [date, setDate] = useState("");
   const [priority, setPriority] = useState("");
+  const {addTask} = useContext(TaskContext)
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (text.trim() && date && priority) {
-      onAdd(text, date, priority);
+      addTask(text, date, priority);
       setText("");
       setDate("");
       setPriority("");
