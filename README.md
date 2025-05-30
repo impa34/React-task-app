@@ -1,4 +1,4 @@
-#📝 Task Manager App
+# 📝 Task Manager App
 
 A simple and functional task management application built with **React**, styled using **Tailwind CSS**, and featuring persistent local storage.
 
